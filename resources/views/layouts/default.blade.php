@@ -67,12 +67,15 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                <a href="{{ url('/home') }}">{{ (auth()->user()->name) }}</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('login') }}">Login</a>        
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+
+                            {{--Link to register admin,
+                                register admin in DB then remove this link
+                                <a href="{{ route('register') }}">Register</a> --}}
                         @endif
                     @endauth
                 </div>
@@ -80,7 +83,9 @@
             <div class="top-left links">
                     <a href="/">Home</a>
                     <a href="/scan">Scan</a>
-                    <a href="/participants">Participants</a>                    
+                    @if (Auth::check())
+                    <a href="/participants">Participants</a>       
+                    @endif             
             </div>
             <header class="content">
                 @include('layouts.header')

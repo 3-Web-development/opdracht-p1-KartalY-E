@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -20,9 +21,11 @@ Route::get('/scan', function () {
  
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/register','HomeController@index')->name('home');
+Route::get('/*/register','HomeController@index')->name('home');
 
-Route::resource('participants','ParticipantsController');
 
+Route::resource('participants','ParticipantsController')->middleware('auth');
 // Route::get('/participants', 'ParticipantsController@index');
 
 // Route::get('/participants/{participant}','ParticipantsController@show');
@@ -34,6 +37,5 @@ Route::post('/scan', 'ParticipantsController@store');
 // route::patch('/participants/{participant}','ParticipantsController@update');
 
 // route::delete('/participants/{participant}','ParticipantsController@destroy');
-
 
 Auth::routes();

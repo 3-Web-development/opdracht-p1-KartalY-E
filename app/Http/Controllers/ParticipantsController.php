@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Participant;
 
+
 class ParticipantsController extends Controller
 {
     //
@@ -25,6 +26,9 @@ class ParticipantsController extends Controller
 
         return redirect('/participants');
     }
+    public function indexx(Request $request) {
+        $request->ip();
+      }
 
     public function show(Participant $participant)
     {
