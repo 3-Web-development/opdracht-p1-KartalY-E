@@ -6,7 +6,11 @@
         <li>{{ $participant->email }}</li>
         <li>{{ $participant->address }}</li>
         <li>{{ $participant->city }}</li>
-
-    <a href="/participants/{{ $participant->id}}/edit">Edit</a>
+        @if ($participant->is_disqualified)
+        <li>this user is disqualified</li>
+        @endif
+        <button>
+            <a href="/participants/{{ $participant->id}}/edit">Edit</a>
+        </button>
     </div>
 @stop

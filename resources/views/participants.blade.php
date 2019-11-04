@@ -5,8 +5,9 @@
     @foreach ($participants as $participant)
         <br>
         <a href="/participants/{{ $participant->id }}">
-            <li>{{ $participant->username }}</li>
+            <li>{{ $participant->username }} &nbsp; <b>{{ $participant->is_disqualified ? "Disqualified":"" }}</b></li>
         </a>
+        
     @endforeach
 
 @stop

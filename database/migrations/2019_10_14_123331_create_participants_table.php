@@ -20,6 +20,9 @@ class CreateParticipantsTable extends Migration
             $table->string('email')->unique();
             $table->string('address');
             $table->string('city');
+            $table->integer('code');
+            $table->boolean('is_disqualified')->default(0);
+            
         });
     }
 

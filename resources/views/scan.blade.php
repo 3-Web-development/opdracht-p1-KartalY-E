@@ -10,6 +10,7 @@
       <input type="email" name="email" placeholder="email" value="{{ old('email') }}" required>
       <input type="text" name="address" placeholder="address" value="{{ old('address') }}" required>
       <input type="text" name="city" placeholder="city" value="{{ old('city') }}" required>
+      <input type="text" name="code" placeholder="code" value="{{ old('code') }}" required>
       <button type="submit">Submit</button>
    
    </form>

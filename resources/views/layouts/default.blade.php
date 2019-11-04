@@ -85,6 +85,9 @@
                     <a href="/scan">Scan</a>
                     @if (Auth::check())
                     <a href="/participants">Participants</a>       
+                    @endif  
+                    @if (Auth::check())
+                    <a href="/settings">Settings</a>       
                     @endif             
             </div>
             <header class="content">
