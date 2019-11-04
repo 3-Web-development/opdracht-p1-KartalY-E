@@ -18,6 +18,25 @@ class ParticipantsController extends Controller
         return view('participants',['participants' => $participants]);
     }
 
+    public function ShowWinners()
+    {
+        //ik was hier 
+        $time = date('Y-m-d H:i:s'); 
+        $current_comp = DB::table('settings')
+        ->where('periode_start_date','<',$time)->where('periode_end_date','>',$time)
+        ->value('competition_name');
+        
+        $winners = DB::table('winner')
+        ->join('participants','winner.participant_id','=','participants.id')
+        ->join('settings','winner.competition_id','=','settings.id')
+        ->where('periode_start_date','<',$time)->where('periode_end_date','>',$time)
+        ->where('is_disqualified','=','0')
+        ->select('username')->get();
+        //dd($winners);
+
+        return view('/welcome',["winners" => $winners,"current_comp" => $current_comp ]);
+    }
+
     public function store()
     {   
         Participant::create(request()->validate([
@@ -44,11 +63,10 @@ class ParticipantsController extends Controller
 
             DB::table('settings')->where('id',$comp_id_list)->update(['winner' => request('email')]);
             $this->saveWinner($comp_id_list);
-        } 
-
-        dd("WRONG CODE");
-
-        return redirect('/');
+        }else{
+            return view('welcome',['loser_name' => request('username')]);
+        }        
+        return view('welcome',['winner_name' => request('username')]);
     }
     public function saveWinner($id)
     {
@@ -63,7 +81,7 @@ class ParticipantsController extends Controller
         ,'code' => request('code')
         ]);
 
-        return redirect('welcome');
+        return redirect('/welcome');
     }
 
     public function show(Participant $participant)

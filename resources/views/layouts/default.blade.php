@@ -81,7 +81,7 @@
                 </div>
             @endif
             <div class="top-left links">
-                    <a href="/">Home</a>
+                    <a href="/welcome">Home</a>
                     <a href="/scan">Scan</a>
                     @if (Auth::check())
                     <a href="/participants">Participants</a>       

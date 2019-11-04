@@ -16,9 +16,7 @@ class SettingsController extends Controller
         Settings::create(request()->validate([
             'competition_name'=> ['required','unique:settings','min:5','max:255'],
             'periode_start_date'=> 'required',
-            'periode_start_time'=> 'required',
             'periode_end_date'=> 'required',
-            'periode_end_time'=> 'required',
             'code' => 'required',
         ]));
         return redirect('/settings');
@@ -37,12 +35,10 @@ class SettingsController extends Controller
     {
         $setting->update(request(['competition_name',
         'periode_start_date',
-        'periode_start_time',
         'periode_end_date',
-        'periode_end_time',
         'code',
         ]));
-        return redirect('/');
+        return redirect('/settings');
     }
     public function destroy(Settings $setting)
     {

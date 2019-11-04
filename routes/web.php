@@ -11,22 +11,18 @@
 |
 */
 
-
-Route::get('welcome','HomeController@showWinners');
+Route::get('/welcome','ParticipantsController@showWinners');
 
 Route::get('/scan', function () {
     return view('scan');
 });
  
 Route::post('/scan', 'ParticipantsController@store');
-
 Route::get('/home', 'HomeController@index')->name('home');
-
 
 Route::get('/settings', 'SettingsController@index')->middleware('auth');
 
 Route::post('/settings', 'SettingsController@store')->middleware('auth');
-
 
 Route::resource('participants','ParticipantsController')->middleware('auth');
 

@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('auth');
     }
 
     /**
@@ -25,13 +25,5 @@ class HomeController extends Controller
     {
         return view('home');
     }
-    public function showWinners()
-    {
-        //ik was hier 
-        $winners = DB::table('winner')
-        ->join('participants','winner.participant_id','=','participants.id')
-        ->select('username')->get();
-        //dd($winners);
-        return view('welcome',["winners" => $winners]);
-    }
+    
 }
