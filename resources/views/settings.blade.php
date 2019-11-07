@@ -3,34 +3,25 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <h4>i'm the settings page</h4>
+        <h3>i'm the settings page</h3>
 
         @foreach ($settings as $setting)
-        <br>
+        <p>
         <a href="/settings/{{ $setting->id }}">
-            <li>{{ $setting->competition_name }}</li>
+            <b>{{ $setting->competition_name }}</b>
         </a>
+        </p>
         @endforeach
 
-        <form action="/settings" method="post">
+        <form class="form" action="/settings" method="post">
             @csrf
-            <b>Add a new competition here:</b><br>
-            <span>Competition name</span>
-            <input type="text" name="competition_name">
-            
-            <span> Start</span>&nbsp;
-            <input type="date" name="periode_start_date" id="" >
-            <input type="time" name="periode_start_time" id="">
-            <span>End</span>
+            <b><h4>Add a new period here</h4></b>
+            <input type="text" name="competition_name" placeholder="Period Name">
+            <input type="date" name="periode_start_date" id="">
             <input type="date" name="periode_end_date" id="">
-            <input type="time" name="periode_end_time" id="">
+            <input type="text"name="code" placeholder="Code">
             <br>
-            <span>code</span>
-            <input type="text"name="code">
-            <br>
-            
-            <br>
-            <input type="submit" value="Submit">
+            <input class="button" type="submit" value="Submit">
         
         </form>
         <div class="errors">

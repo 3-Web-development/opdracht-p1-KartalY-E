@@ -16,18 +16,17 @@ class CreateWinner extends Migration
         Schema::create('winner', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->unsignedBigInteger('competition_id');
-            $table->foreign('competition_id')->references('id')->on('settings');
-            $table->unsignedBigInteger('participant_id');
-            $table->foreign('participant_id')->references('id')->on('participants');
+            $table->integer('competition_id');
+            //$table->foreign('competition_id')->references('id')->on('settings');
+            $table->integer('participant_id');
+            //$table->foreign('participant_id')->references('id')->on('participants');
 
-            $table->string('competition_name')->unsigned();
-            $table->foreign('competition_name')->references('competition_name')->on('settings');
-            $table->string('winner')->unsigned();
-            $table->foreign('winner')->references('winner')->on('setting');
-            $table->string('code')->unsigned();
-            $table->foreign('code')->references('id')->on('participants');
-            
+            $table->string('competition_name');
+            //$table->foreign('competition_name')->references('competition_name')->on('settings');
+            $table->string('winner');
+            //$table->foreign('winner')->references('winner')->on('setting');
+            $table->string('code');
+            //$table->foreign('code')->references('id')->on('participants');
             $table->timestamps();
         });
     }

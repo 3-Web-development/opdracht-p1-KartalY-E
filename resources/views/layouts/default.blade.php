@@ -7,7 +7,8 @@
         <title>Louis Vuitton</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="stylesheet" href="<?php echo asset('css/header.css')?>">
 
         <!-- Styles -->
         <style>
@@ -81,7 +82,7 @@
                 </div>
             @endif
             <div class="top-left links">
-                    <a href="/welcome">Home</a>
+                    <a href="/welcome">LOUIS VUITTON</a>
                     <a href="/scan">Scan</a>
                     @if (Auth::check())
                     <a href="/participants">Participants</a>       
@@ -89,11 +90,8 @@
                     @if (Auth::check())
                     <a href="/settings">Settings</a>       
                     @endif             
-            </div>
-            <header class="content">
-                @include('layouts.header')
-            </header>
-            
+                    
+            </div>          
         </div>
         <div class="content">
             @yield('content')

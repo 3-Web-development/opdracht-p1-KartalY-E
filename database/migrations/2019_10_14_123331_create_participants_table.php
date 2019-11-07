@@ -22,6 +22,7 @@ class CreateParticipantsTable extends Migration
             $table->string('city');
             $table->integer('code');
             $table->boolean('is_disqualified')->default(0);
+            $table->string('ip_address')->default(request()->ip());
             
         });
     }

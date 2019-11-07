@@ -1,0 +1,140 @@
+.content {
+    min-height: 550px;
+}
+
+.main{
+    display: flex;
+    flex-direction: row;
+    max-width: 1500px;
+    margin: 0 auto;
+    height: auto;
+} 
+.main2{
+    display: flex;
+    flex-direction: row;
+    max-width: 1500px;
+    margin: 0 auto;
+    height: auto;
+}
+
+.main .info{
+    margin: 0 auto;
+    padding-top: 50px;
+    text-align: center;
+    width: 50%;
+}
+.main .info p{
+    color: black;
+    font-weight: 700;
+    font-size: 45px;
+    font-family: 'Source Sans Pro', sans-serif;
+    margin-bottom: 25px;
+}
+.main .info button{
+    background-color: black;
+    border: none;
+    padding: 10px 15px 10px 15px;
+    color: white;
+    font-weight: 300;
+    font-size: 20px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.main .lv_img1{
+    width: 50%;
+}
+.main .lv_img1 img{
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+.main2 .winners{
+    margin: 0 auto;
+    width: 50%;
+    font-weight: 300;
+    font-size: 20px;
+    font-family: 'Nunito', sans-serif;
+
+}
+.main2 .lv_img2{
+    display: inline-block;
+    position: relative;
+    width: 50%;
+}
+.main2 .lv_img2 img{
+    width: 100%;
+    height: auto;
+    
+}
+footer{
+    font-weight: 700;
+    color: white;
+    background-color: #19110b;
+    padding:25px 15px 25px 15px;
+}
+footer p{
+    padding-bottom: 20px;
+    border-bottom: 1px solid #392d23
+
+}
+footer ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between; 
+
+}
+footer ul li{
+    padding:10px;
+
+}
+
+.form{
+    margin: 0 auto;
+    padding: 40px;
+    border-radius: 20px;
+    width: 300px;
+    height: auto;
+    border: 2px solid black;
+}
+.form input{
+    text-align: center;
+    padding: 12px;
+    margin-bottom: 10px;
+    min-width: 200px;
+}
+.button{
+    background-color: black;
+    border: none;
+    padding: 10px 15px 10px 15px;
+    color: white;
+    font-weight: 300;
+    font-size: 20px;
+    font-family: 'Nunito', sans-serif;
+    min-width:120px;
+}
+h3{
+    color: black;
+    font-weight: 700;
+    font-size: 45px;
+    font-family: 'Source Sans Pro', sans-serif;
+    margin-bottom: 40px;
+
+}
+
+a{
+    text-decoration: none;
+}
+span{
+    font-size: 20px;
+}
+.white{
+    color:white;
+}
+span{
+    padding-bottom: 20px;
+}
+h1,h2,h3,h4{
+    color: black;
+}

@@ -1,11 +1,11 @@
 @extends('layouts.default')
 
 @section('content')
-   <p>i am the participants page</p>
+   <h3>i am the participants page</h3>
     @foreach ($participants as $participant)
         <br>
         <a href="/participants/{{ $participant->id }}">
-            <li>{{ $participant->username }} &nbsp; <b>{{ $participant->is_disqualified ? "Disqualified":"" }}</b></li>
+            <b>{{ $participant->username }} &nbsp;{{ $participant->is_disqualified ? "Disqualified":"" }}</b>
         </a>
         
     @endforeach

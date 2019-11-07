@@ -1,33 +1,52 @@
 @extends('layouts.default')
 
 @section('content')
-   @if (isset($winners))   
-      <div>
-         <h4>{{ $current_comp }}</h4>
+
+<div class="main">
+   <div class="info">
+      <p>Win a new bag</p>
+      <a href="/scan">
+         <button a href="/scan">Enter your code</button>
+      </a>
+   </div>
+   <div class="lv_img1">
+      <img src="images/lv_img1.png" alt="bag img1">
+   </div>
+</div>
+<div class="main2">
+
+   @if (empty($winners))   
+      <div class="lv_img2">
+         <img src="images/lv_img2.png" alt="bag img2">
+      </div>
+      <div class="winners">
+         <h4>current competition :{{ $current_comp }}</h4>
          @foreach ($winners as $item)
             <li>{{ $item->username }}</li>
-      @endforeach
+         @endforeach
       </div>
+   @else
+
+   <hr>
+
+   
    @endif
-   <div>
-      <h2>Welcome</h2>
-      <p>Scan any QR code u get with our new collection AND WIN every item of our NEW COLLECTION</p>
-   </div>
-   <div>
-         <a href="/scan"><button a href="/scan">SCAN</button></a>
-   </div>
+</div>
+
+
+
    @if(isset($data))
       <h1>{{ $data->compatition_name }}</h1>
    @endif
 
    @if (isset($winner_name))
    <div>
-
       <h2>
          Congragulation u won : {{ $winner_name }}
       </h2>
    </div>
    @endisset
+
    @if(isset($loser_name))
        <div>
           <h2>

@@ -37,16 +37,14 @@ class ParticipantsController extends Controller
         return view('/welcome',["winners" => $winners,"current_comp" => $current_comp ]);
     }
 
-    public function store()
+    public function store(Participant $participant)
     {   
         Participant::create(request()->validate([
             'username'=> ['required','unique:participants','min:5','max:255'],
             'email'=> ['unique:participants','required'],
             'address'=> 'required',
             'city'=> 'required',
-            'code' =>['required','min:5','max:5']
-        ]));
-        
+            'code' =>['required','min:5','max:5']]));
         $time = date('Y-m-d H:i:s'); 
 
         if(Auth::user()){
@@ -73,12 +71,14 @@ class ParticipantsController extends Controller
         $compatition_name = DB::table('settings')->where('id',$id)->value('competition_name');
         $winner_name = DB::table('settings')->where('id',$id)->value('competition_name');
         $participant_id = DB::table('participants')->where('email', request('email'))->value('id');
-        DB::table('winner')->insertGetId(['competition_id' => $id 
-        
+
+        DB::table('winner')->insertGetId(
+        ['competition_id' => $id
         ,'participant_id' => $participant_id
         ,'competition_name' => $compatition_name
         ,'winner' => $winner_name
-        ,'code' => request('code')
+        ,'code' => request('code'),
+        
         ]);
 
         return redirect('/welcome');
