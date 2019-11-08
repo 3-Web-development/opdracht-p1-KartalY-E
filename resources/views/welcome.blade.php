@@ -15,7 +15,7 @@
 </div>
 <div class="main2">
 
-   @if (empty($winners))   
+   @if (empty($winners) and (empty($current_comp)))   
       <div class="lv_img2">
          <img src="images/lv_img2.png" alt="bag img2">
       </div>

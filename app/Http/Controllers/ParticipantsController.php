@@ -54,17 +54,18 @@ class ParticipantsController extends Controller
 
         //check if code won competition 
         $comp_id_list = DB::table('settings')->where('periode_start_date','<',$time)->where('periode_end_date','>',$time)->value('id');
+        $current_comp = DB::table('settings')->where('periode_start_date','<',$time)->where('periode_end_date','>',$time)->value('competition_name');
         //dd($comp_id_list);
-
+        
         //dd CHECK CODE 
         if(DB::table('settings')->where('id',$comp_id_list)->value('code') == request('code')){
 
             DB::table('settings')->where('id',$comp_id_list)->update(['winner' => request('email')]);
             $this->saveWinner($comp_id_list);
         }else{
-            return view('welcome',['loser_name' => request('username')]);
+            return view('welcome',['loser_name' => request('username'),'current_comp' => $current_comp ]);
         }        
-        return view('welcome',['winner_name' => request('username')]);
+        return view('welcome',['winner_name' => request('username') , 'current_comp' => $current_comp]);
     }
     public function saveWinner($id)
     {
@@ -81,7 +82,7 @@ class ParticipantsController extends Controller
         
         ]);
 
-        return redirect('/welcome');
+        //return redirect('/welcome');
     }
 
     public function show(Participant $participant)
