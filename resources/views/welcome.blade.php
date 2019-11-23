@@ -15,21 +15,13 @@
 </div>
 <div class="main2">
 
-   @if (isset($winners) and (empty($current_comp)))   
-      <div class="lv_img2">
-         <img src="images/lv_img2.png" alt="bag img2">
-      </div>
+   @if (isset($winners))   
       <div class="winners">
-         <h4>current competition :{{ $current_comp }}</h4>
+         <h4>winners of the current competition :&nbsp;{{ $current_comp }}</h4>
          @foreach ($winners as $item)
             <li>{{ $item->username }}</li>
          @endforeach
       </div>
-   @else
-
-   <hr>
-
-   
    @endif
 </div>
 
@@ -38,6 +30,12 @@
    @if(isset($data))
       <h1>{{ $data->compatition_name }}</h1>
    @endif
+
+   @isset($message)
+   <div>
+   <h1>Sorry {{ $message }} there is no competition currently</h1>
+   </div>
+   @endisset
 
    @if (isset($winner_name))
    <div>

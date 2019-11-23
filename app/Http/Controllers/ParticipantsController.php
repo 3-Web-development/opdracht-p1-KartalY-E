@@ -11,6 +11,10 @@ use DB;
 $list_winners = [];
 class ParticipantsController extends Controller
 {
+    public function showWelcome()
+    {
+        return view('welcome');
+    }
     public function index()
     {
         
@@ -39,33 +43,48 @@ class ParticipantsController extends Controller
 
     public function store(Participant $participant)
     {   
-        Participant::create(request()->validate([
-            'username'=> ['required','unique:participants','min:5','max:255'],
-            'email'=> ['unique:participants','required'],
-            'address'=> 'required',
-            'city'=> 'required',
-            'code' =>['required','min:5','max:5']]));
         $time = date('Y-m-d H:i:s'); 
-
-        if(Auth::user()){
-            ///Get id table       
-            return redirect('/participants');
-        }
-
-        //check if code won competition 
         $comp_id_list = DB::table('settings')->where('periode_start_date','<',$time)->where('periode_end_date','>',$time)->value('id');
-        $current_comp = DB::table('settings')->where('periode_start_date','<',$time)->where('periode_end_date','>',$time)->value('competition_name');
-        //dd($comp_id_list);
-        
-        //dd CHECK CODE 
-        if(DB::table('settings')->where('id',$comp_id_list)->value('code') == request('code')){
+        if($comp_id_list){
+            Participant::create(request()->validate([
+                'username'=> ['required','unique:participants','min:5','max:255'],
+                'email'=> ['unique:participants','required'],
+                'address'=> 'required',
+                'city'=> 'required',
+                'code' =>['required','min:5','max:5']]));
+            
 
-            DB::table('settings')->where('id',$comp_id_list)->update(['winner' => request('email')]);
-            $this->saveWinner($comp_id_list);
+            if(Auth::user()){
+                ///Get id table       
+                return redirect('/participants');
+            }
+
+            //check if code won competition 
+            $comp_id_list = DB::table('settings')->where('periode_start_date','<',$time)->where('periode_end_date','>',$time)->value('id');
+            $current_comp = DB::table('settings')->where('periode_start_date','<',$time)->where('periode_end_date','>',$time)->value('competition_name');
+            $winners = DB::table('winner')
+        ->join('participants','winner.participant_id','=','participants.id')
+        ->join('settings','winner.competition_id','=','settings.id')
+        ->where('periode_start_date','<',$time)->where('periode_end_date','>',$time)
+        ->where('is_disqualified','=','0')
+        ->select('username')->get();
+            //dd($comp_id_list);
+            
+            //dd CHECK CODE 
+            if(DB::table('settings')->where('id',$comp_id_list)->value('code') == request('code')){
+
+                DB::table('settings')->where('id',$comp_id_list)->update(['winner' => request('email')]);
+                $this->saveWinner($comp_id_list);
+            }else{
+                return view('welcome',["winners" => $winners ,'loser_name' => request('username'),'current_comp' => $current_comp ]);
+            }        
+            return view('welcome',["winners" => $winners , 'winner_name' => request('username') , 'current_comp' => $current_comp]);
+
         }else{
-            return view('welcome',['loser_name' => request('username'),'current_comp' => $current_comp ]);
-        }        
-        return view('welcome',['winner_name' => request('username') , 'current_comp' => $current_comp]);
+
+            //dd("no competition currently");
+            return view('welcome',['message' => request('username')]);
+        }
     }
     public function saveWinner($id)
     {
