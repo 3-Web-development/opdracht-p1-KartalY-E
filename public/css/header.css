@@ -2,14 +2,7 @@
     min-height: 550px;
 }
 
-.main{
-    display: flex;
-    flex-direction: row;
-    max-width: 1500px;
-    margin: 0 auto;
-    height: auto;
-} 
-.main2{
+.main {
     display: flex;
     flex-direction: row;
     max-width: 1500px;
@@ -17,20 +10,30 @@
     height: auto;
 }
 
-.main .info{
+.main2 {
+    display: flex;
+    flex-direction: row;
+    max-width: 1500px;
+    margin: 0 auto;
+    height: auto;
+}
+
+.main .info {
     margin: 0 auto;
     padding-top: 50px;
     text-align: center;
     width: 50%;
 }
-.main .info p{
+
+.main .info p {
     color: black;
     font-weight: 700;
     font-size: 45px;
     font-family: 'Source Sans Pro', sans-serif;
     margin-bottom: 25px;
 }
-.main .info button{
+
+.main .info button {
     background-color: black;
     border: none;
     padding: 10px 15px 10px 15px;
@@ -40,57 +43,71 @@
     font-family: 'Nunito', sans-serif;
 }
 
-.main .lv_img1{
+.main .lv_img1 {
     width: 50%;
 }
-.main .lv_img1 img{
+
+.main .lv_img1 img {
     max-width: 100%;
     height: auto;
     display: block;
 }
-.main2 .winners{
+
+.main2 .winners {
     margin: 0 auto;
     width: 50%;
     font-weight: 300;
     font-size: 20px;
     font-family: 'Nunito', sans-serif;
+    padding: 10px;
 
 }
-.main2 .lv_img2{
+
+.main2 .lv_img2 {
     display: inline-block;
     position: relative;
     width: 50%;
 }
-.main2 .lv_img2 img{
+
+.main2 .lv_img2 img {
     width: 100%;
     height: auto;
-    
+
 }
-footer{
+
+.winners {
+    margin: 10px;
+    border-radius: 20px;
+    border: solid black 1px;
+}
+
+footer {
     font-weight: 700;
     color: white;
     background-color: #19110b;
-    padding:25px 15px 25px 15px;
+    padding: 25px 15px 25px 15px;
 }
-footer p{
-    padding-bottom: 20px;
-    border-bottom: 1px solid #392d23
 
+footer p {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #392d23;
 }
-footer ul{
+
+footer ul {
     padding: 0;
     margin: 0;
     list-style: none;
     display: flex;
-    justify-content: space-between; 
-
-}
-footer ul li{
-    padding:10px;
+    justify-content: space-between;
 
 }
 
-.form{
+footer ul li {
+    padding: 10px;
+
+}
+
+.form {
     margin: 0 auto;
     padding: 40px;
     border-radius: 20px;
@@ -98,13 +115,15 @@ footer ul li{
     height: auto;
     border: 2px solid black;
 }
-.form input{
+
+.form input {
     text-align: center;
     padding: 12px;
     margin-bottom: 10px;
     min-width: 200px;
 }
-.button{
+
+.button {
     background-color: black;
     border: none;
     padding: 10px 15px 10px 15px;
@@ -112,9 +131,10 @@ footer ul li{
     font-weight: 300;
     font-size: 20px;
     font-family: 'Nunito', sans-serif;
-    min-width:120px;
+    min-width: 120px;
 }
-h3{
+
+h3 {
     color: black;
     font-weight: 700;
     font-size: 45px;
@@ -123,18 +143,53 @@ h3{
 
 }
 
-a{
+a {
     text-decoration: none;
 }
-span{
+
+span {
     font-size: 20px;
 }
-.white{
-    color:white;
+
+.white {
+    color: white;
 }
-span{
+
+span {
     padding-bottom: 20px;
 }
-h1,h2,h3,h4{
+
+h1,
+h2,
+h3,
+h4 {
     color: black;
+}
+
+
+.popup {
+    border-radius: 20px;
+    border: solid black 1px;
+    padding: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
+
+    position: fixed;
+    height: 200px;
+    top: 30%;
+    left: 50%;
+
+    transform: translateX(-50%);
+    width: auto;
+    height: auto;
+    background-color: white;
+    align-content: center;
+}
+
+.popup button {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 15px;
 }
