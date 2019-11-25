@@ -10,6 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/login','ParticipantsController@showWinners');
+
+Route::get('/register','ParticipantsController@showWinners');
+
+
+
 Route::get('/','ParticipantsController@showWinners');
 
 Route::get('/welcome','ParticipantsController@showWinners');

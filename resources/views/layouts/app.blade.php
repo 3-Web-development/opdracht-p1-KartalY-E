@@ -21,6 +21,7 @@
     
 </head>
 <body>
+    
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -49,8 +50,8 @@
 
                                     {{-- Link to register admin,
                                          register admin in DB then remove this link
---}}
-                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a> 
+
+                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a> --}}
                                 </li>
                             @endif
                         @else

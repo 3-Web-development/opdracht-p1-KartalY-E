@@ -75,6 +75,39 @@
 
 }
 
+.main2 {
+    padding: 10px;
+}
+
+
+.popup {
+    font-weight: 700;
+    border-radius: 20px;
+    border: solid black 1px;
+    padding: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
+
+    position: fixed;
+    height: 200px;
+    top: 30%;
+    left: 50%;
+
+    transform: translateX(-50%);
+    width: auto;
+    height: auto;
+    background-color: white;
+    align-content: center;
+}
+
+.popup button {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 15px;
+}
+
 .winners {
     margin: 10px;
     border-radius: 20px;
@@ -164,32 +197,4 @@ h2,
 h3,
 h4 {
     color: black;
-}
-
-
-.popup {
-    border-radius: 20px;
-    border: solid black 1px;
-    padding: 30px;
-    padding-left: 40px;
-    padding-right: 40px;
-
-    position: fixed;
-    height: 200px;
-    top: 30%;
-    left: 50%;
-
-    transform: translateX(-50%);
-    width: auto;
-    height: auto;
-    background-color: white;
-    align-content: center;
-}
-
-.popup button {
-    background-color: black;
-    color: white;
-    border: none;
-    border-radius: 20px;
-    padding: 15px;
 }
