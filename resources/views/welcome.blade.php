@@ -15,7 +15,7 @@
 </div>
 <div class="main2">
 
-   @if (isset($winners))   
+   @if (count($winners))   
       <div class="winners">
          <h4>winners of the current competition :&nbsp;{{ $current_comp }}</h4>
          @foreach ($winners as $item)
